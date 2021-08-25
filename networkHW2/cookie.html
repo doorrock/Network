@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title class="title">Welcom </title>
+  </head>
+  <body>
+    <p class="name"></p>
+    <p class="time"></p>
+
+    <script type="text/javascript">
+      function set(){
+        var coo = document.cookie;
+        var q = coo.split(";");
+        var id = q[0].split("=");
+        var t = q[1].split("=");
+        let tm = new Date();
+        let s = tm.getSeconds();
+        var name = document.querySelector(".name");
+        var title = document.querySelector(".title");
+        var time = document.querySelector(".time");
+
+        name.innerHTML = "Hello " + id[1];
+        title.innerHTML = "Welcome " + id[1];
+        time.innerHTML = (t[1] - s + 60) % 60 - 1 + " seconds left until your cookie expires.";
+      }
+      setInterval(set, 1000);
+
+    </script>
+  </body>
+</html>
